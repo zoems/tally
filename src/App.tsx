@@ -1,11 +1,19 @@
-import React from 'react';
+import React from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
 
 const App: React.FC = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-blue-500">
-      <h1 className="text-4xl font-bold text-white">Hello, Tailwind with React and TypeScript!</h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<NotFound />} />{" "}
+        {/* Catch-all route for 404 */}
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
